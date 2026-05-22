@@ -1,0 +1,20 @@
+{
+  "name": "chat-analytics-server",
+  "version": "1.0.0",
+  "description": "Ingestion server for chat-analytics-sdk",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^4.19.2",
+    "prisma": "^7.8.0",
+    "sql.js": "^1.12.0"
+  }
+}

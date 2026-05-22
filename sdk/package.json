@@ -1,0 +1,49 @@
+{
+  "name": "chat-sdk-custom",
+  "version": "1.0.0",
+  "description": "Lightweight SDK that is custom to a specific project.",
+  "keywords": [],
+  "author": "Priyanshu soni",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/priyanshu-7938/chat-sdk-custom.git"
+  },
+  "homepage": "https://github.com/priyanshu-7938/chat-sdk-custom#readme",
+  "bugs": {
+    "url": "https://github.com/priyanshu-7938/chat-sdk-custom/issues"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "build:types": "tsc --emitDeclarationOnly",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^1.6.1"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "sideEffects": false
+}

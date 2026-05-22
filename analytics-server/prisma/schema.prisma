@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Session {
+  sessionId    String         @id @map("session_id")
+  userId       String         @default("") @map("user_id")
+  tags         String         @default("[]")
+  attributes   String         @default("{}")
+  sdkVersion   String         @default("") @map("sdk_version")
+  firstSeenAt  BigInt         @map("first_seen_at")
+  lastSeenAt   BigInt         @map("last_seen_at")
+  messageCount Int            @default(0) @map("message_count")
+
+  messages     Message[]
+  ingestionLog IngestionLog[]
+
+  @@map("sessions")
+}
+
+model Message {
+  id           Int      @id @default(autoincrement())
+
+  sessionId    String   @map("session_id")
+  role         String
+  content      String
+
+  wordCount    Int      @map("word_count")
+  charCount    Int      @map("char_count")
+
+  msgTimestamp BigInt   @map("msg_timestamp")
+  ingestedAt   BigInt   @map("ingested_at")
+
+  metadata     String   @default("{}")
+
+  session Session @relation(fields: [sessionId], references: [sessionId], onDelete: Cascade)
+
+  @@index([sessionId], map: "idx_messages_session")
+  @@index([role], map: "idx_messages_role")
+  @@index([msgTimestamp], map: "idx_messages_ts")
+
+  @@map("messages")
+}
+
+model IngestionLog {
+  id           Int    @id @default(autoincrement())
+
+  sessionId    String @map("session_id")
+  sdkVersion   String @map("sdk_version")
+
+  messageCount Int    @map("message_count")
+
+  flushedAt    BigInt @map("flushed_at")
+  receivedAt   BigInt @map("received_at")
+
+  ip           String @default("")
+
+  session Session @relation(fields: [sessionId], references: [sessionId], onDelete: Cascade)
+
+  @@map("ingestion_log")
+}

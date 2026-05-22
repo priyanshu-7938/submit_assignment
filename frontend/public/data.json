@@ -1,0 +1,380 @@
+{
+  "projects": [
+    {
+      "tags": ["NestJS", "Next.js", "Redis", "Kubernetes", "Jenkins", "TypeScript"],
+      "name": "Renthub-BTFS",
+      "description": {
+        "tagline": "Storage-as-a-Service Infrastructure for BTFS",
+        "keynotes": [
+          "Engineered a high-speed file upload wrapper and RESTful API using NestJS and TypeScript",
+          "Managed 'warm pools' of funded BTFS nodes on Kubernetes to handle high-volume requests",
+          "Implemented a full CI/CD pipeline using Jenkins to automate testing and deployment",
+          "Designed a React.js dashboard and a developer SDK for seamless storage integration"
+        ],
+        "links": [
+          {
+            "type": "github",
+            "url": "https://github.com/Torrentia-org"
+          },
+          {
+            "type": "youtube",
+            "url": "https://youtu.be/DNtSjhwd_zg"
+          }
+        ]
+      }
+    },
+      {
+      "tags": ["NestJS", "Node.js", "Kubernetes", "Redis", "DeFi"],
+      "name": "Pegasus-Pay",
+      "description": {
+        "tagline": "Context-Aware Crypto Payment Gateway",
+        "keynotes": [
+          "Architected a lifecycle-driven payment pipeline to handle high-volume transactions",
+          "Deployed on Kubernetes using Helm charts for service discovery and load balancing",
+          "Implemented automated server-side calculations to manage slippage during settlements"
+        ],
+        "links": [{
+          "type":"github",
+          "url":"https://github.com/Pegasus-Pay"
+        }]
+      }
+    },
+    {
+      "tags": ["Electron.js", "BTFS", "P2P", "Decentralized Web"],
+      "name": "Zap-Browser",
+      "description": {
+        "tagline": "P2P-First Decentralized Web Browser",
+        "keynotes": [
+          "Developed a browser where every instance acts as a node in a custom P2P network",
+          "Injected a global `window.zap` API into the DOM for direct peer-to-peer data channels",
+          "Integrated native BTFS support for decentralized file hosting and retrieval"
+        ],
+        "links": [
+          {
+            "type": "github",
+            "url": "https://github.com/Zap-browser"
+          },
+          {
+            "type":"youtube",
+            "url":"https://youtu.be/hw5mSC--ioE"
+          },
+          {
+            "type":"youtube",
+            "url":"https://youtu.be/M4hMBFeiHng"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["Solidity", "Docker", "Game Theory", "DAO", "Axiom-OO"],
+      "name": "Delphi-Prediction Market",
+      "description": {
+        "tagline": "LMSR-Based Decentralized Prediction Market",
+        "keynotes": [
+          "Implemented the LMSR (Logarithmic Market Scoring Rule) algorithm for automated market liquidity",
+          "Powered by a custom 'Optimistic Oracle' DAO where users stake tokens to resolve disputes",
+          "Designed for high availability and fault tolerance in a distributed setting"
+        ],
+        "links": [
+          {
+            "type":"github",
+            "url": "https://github.com/priyanshu-7938/OptimisticOracel-Axiom"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["Solidity", "Game Theory", "DAO", "Oracle"],
+      "name": "Axiom-Optimistic Oracle",
+      "description": {
+        "tagline": "Decentralized Truth Oracle",
+        "keynotes": [
+          "Created a source of truth for generic data points inspired by UMA's Optimistic Oracle",
+          "Designed an inflationary token model (Delphi Token) to incentivize truthful voting",
+          "Implemented dispute resolution contracts and external function calls for data verification"
+        ],
+        "links": [
+          {
+            "type":"github",
+            "url": "https://github.com/priyanshu-7938/OptimisticOracel-Axiom"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["Solidity", "Node.js", "WebSockets", "React.js", "GameFi", "Cryptography"],
+      "name": "PokerPeak",
+      "description": {
+        "tagline": "On-Chain Poker Platform with Web2-like UX",
+        "keynotes": [
+          "Implemented an on-chain Affine Cipher for mathematically secure card shuffling",
+          "Created a 'Virtual DOM' for blockchain state using WebSockets to relay contract events instantly",
+          "Architected a backend observer module to synchronize game state without constant page refreshes"
+        ],
+        "links": [
+          {
+            "type": "github",
+            "url": "https://github.com/priyanshu-7938/Poker_Peak"
+          },
+          {
+            "type": "youtube",
+            "url": "https://youtu.be/PSdER47Spp4"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["TRON", "Docker", "React.js", "TronWeb", "Sandboxing"],
+      "name": "CodeHive",
+      "description": {
+        "tagline": "Decentralized Competitive Coding Platform",
+        "keynotes": [
+          "Built a self-served Dockerized sandbox to execute and verify user code submissions in real-time",
+          "Automated crypto bounty distribution via smart contracts upon successful runtime verification",
+          "Designed a fair-play mechanism where devs compete for top scores on the TRON network"
+        ],
+        "links": [
+          {
+            "type": "github",
+            "url": "https://github.com/priyanshu-7938"
+          },
+          {
+            "type":"youtube",
+            "url":"https://youtu.be/V3noWV3ZyLw"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["C", "Cryptography", "Post-Quantum", "ML-KEM", "Research"],
+      "name": "Quantum Secure Communication Protocol",
+      "description": {
+        "tagline": "Post-Quantum Key Encapsulation Implementation",
+        "keynotes": [
+          "Implemented the ML-KEM (Module-Lattice-Based Key-Encapsulation Mechanism) standard in pure C",
+          "Developed under faculty supervision at IIIT Vadodara to research post-quantum cryptographic security",
+          "Optimized low-level memory management and algorithmic efficiency for secure key exchange"
+        ],
+        "links": [
+          {
+            "type":"github",
+            "url":"https://github.com/priyanshu-7938/ml-kem"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["Python", "Node.js", "Pub-Sub", "AI Agents", "Sockets"],
+      "name": "Multi-Agent Orchestrator",
+      "description": {
+        "tagline": "Modular Platform for AI Agent Workflows",
+        "keynotes": [
+          "Designed a communication bus to assign tasks to specific autonomous agents",
+          "Built a unified Pub-Sub interface to aggregate logs and stream responses via WebSockets",
+          "Developed a comprehensive React.js frontend for monitoring agent activities"
+        ],
+        "links": [
+          {
+            "type":"dockerhub",
+            "url": "https://hub.docker.com/r/priyanshoe/agenting-handler"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["Solidity", "React.js", "Web3", "Smart Contracts"],
+      "name": "chatWeb",
+      "description": {
+        "tagline": "On-Chain Decentralized Messaging App",
+        "keynotes": [
+          "Developed a decentralized chat application that transfers and permanently stores text messages directly on the blockchain",
+          "Ensures censorship-resistant and immutable communication by leveraging smart contracts for data transport",
+          "Built a React.js frontend to interface seamlessly with the blockchain for real-time message updates"
+        ],
+        "links": [
+          {
+            "type": "github",
+            "url": "https://github.com/priyanshu-7938/chatWeb"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["React.js", "Solidity", "Render", "DeFi"],
+      "name": "CoinEase",
+      "description": {
+        "tagline": "Decentralized Bill Splitting dApp",
+        "keynotes": [
+          "Developed a Splitwise alternative allowing users to log shared expenses on-chain",
+          "Enabled instant debt settlement using native crypto tokens via smart contracts",
+          "Deployed frontend on Render with a focus on clean Web3 UI/UX"
+        ],
+        "links": [
+          {
+            "type": "github",
+            "url": "https://github.com/priyanshu-7938/coinease-splitwise"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["React.js", "Solidity", "Render", "Crowdfunding"],
+      "name": "FundRaser",
+      "description": {
+        "tagline": "On-Chain Crowdfunding Platform",
+        "keynotes": [
+          "Built a platform for institutions and individuals to post funding goals and motivations",
+          "Managed funds completely on-chain via smart contracts for transparency",
+          "Deployed React frontend on Render to interface with the blockchain backbone"
+        ],
+        "links": [
+          {
+            "type": "github",
+            "url": "https://github.com/priyanshu-7938"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["Web3", "IPFS", "React.js", "NFTs"],
+      "name": "NFT LaunchPad",
+      "description": {
+        "tagline": "No-Code NFT Creation Platform",
+        "keynotes": [
+          "Facilitated the creation of custom tokens and NFTs with a simple frontend interface",
+          "Integrated IPFS for decentralized metadata and asset storage",
+          "Enabled one-click minting for non-technical users"
+        ],
+        "links": []
+      }
+    },
+    {
+      "tags": ["MERN Stack", "Web3.js", "Ethereum"],
+      "name": "Ethereum Block Explorer",
+      "description": {
+        "tagline": "Blockchain Data Visualizer",
+        "keynotes": [
+          "Built a custom explorer to fetch and parse Ethereum blocks",
+          "Designed a clean UI to view transaction details and block history",
+          "Implemented raw block parsing algorithms to display data in a human-readable format"
+        ],
+        "links": [
+          {
+            "type": "github",
+            "url": "https://github.com/priyanshu-7938/blockViewWebsite"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["RAG", "Vector DB", "LLM", "AI"],
+      "name": "AI Resume Assistant",
+      "description": {
+        "tagline": "Interactive AI Assistant",
+        "keynotes": [
+          "Developed a RAG-based AI assistant containing full history of projects and education",
+          "Utilized vector databases to enable context-aware queries about professional background",
+          "Created a chat interface for recruiters to interact dynamically with the resume"
+        ],
+        "links": [
+          {
+            "type": "bottom_right_corner",
+            "url": "https://priyanshoe.frontlabs.cloud"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["RAG", "PostgreSQL", "Gemini", "Chatbot"],
+      "name": "GreenRoot Botanicals",
+      "description": {
+        "tagline": "AI Customer Support Chatbot",
+        "keynotes": [
+          "Designed a RAG-based architecture using a PostgreSQL vector database",
+          "Integrated Gemini LLM to answer customer queries regarding inventory and plant care",
+          "Developed for an imaginary business scenario to demonstrate AI integration skills"
+        ],
+        "links": [{
+            "type": "github",
+            "url": "https://github.com/priyanshu-7938/submittion_kl"
+          }]
+      }
+    },
+    {
+      "tags": ["Spring Boot", "Java", "SQL", "Windows"],
+      "name": "Institute Voting System",
+      "description": {
+        "tagline": "Secure Desktop Voting Application",
+        "keynotes": [
+          "Built a Java Spring Boot backend for managing institute elections",
+          "Implemented secure admin/student logins and encrypted vote counting",
+          "Developed a Windows GUI for accessible voting within the institute"
+        ],
+        "links": [
+          {
+            "type": "github",
+            "url": "https://github.com/priyanshu-7938"
+          }
+        ]
+      }
+    },
+    {
+      "tags": ["C Language", "Graphics.h", "Game Development"],
+      "name": "Minesweeper",
+      "description": {
+        "tagline": "Classic Console Game",
+        "keynotes": [
+          "Implemented the classic game in C using the graphics.h library",
+          "Built custom logic for scorekeeping, board updates, and state management",
+          "Demonstrated early mastery of pointers and memory management"
+        ],
+        "links": []
+      }
+    }
+  ],
+  "skills": {
+    "node_js": 9,
+    "nest_js": 9,
+    "react_js": 8,
+    "typescript": 9,
+    "solidity": 8,
+    "c_language": 8,
+    "cryptography": 7,
+    "web3_architecture": 8,
+    "smart_contracts": 8,
+    "tron_polygon": 8,
+    "docker_kubernetes": 8,
+    "postgresql": 8,
+    "redis": 7,
+    "ci_cd_jenkins": 7,
+    "next_js": 7,
+    "golang": 6,
+    "rust": 4
+  },
+  "blogs": [
+   {
+      "title": "Scaling Node.js for High-Volume dApps",
+      "date": "15/11/2025",
+      "category": "Infrastructure & Reliability",
+      "text": "## The Architecture of Reliability\n\nHandling high-volume crypto transactions isn't just about an API; it’s about managing **state and volatility** under pressure. For **Pegasus-Pay**, I moved beyond simple request-response cycles to a context-driven pipeline.\n\n### The Problem: Concurrency & Slippage\nIn a volatile market, a transaction that takes 10 seconds too long is a failed transaction. We couldn't afford bottlenecks.\n\n### The Solution:\n* **Architecture:** Built with **NestJS** to maintain a clean, injectable service layer.\n* **Orchestration:** Integrated **Redis (BullMQ)** for asynchronous job processing. This allowed the API to remain responsive while heavy blockchain indexing happened in the background.\n* **Scaling:** Deployed on **Kubernetes** to allow horizontal scaling of consumers during peak network activity.\n* **The Edge:** I engineered a server-side **Real-Time Slippage Engine**. By calculating price shifts during the block time, we drastically reduced transaction failure rates.\n\n\n\n> **Founder's Note:** Node.js is often criticized for 'heavy' workloads, but with the right message brokers and orchestration, it’s a powerhouse for financial-grade systems."
+    },
+    {
+      "title": "Rebuilding the Web: One Injection at a Time",
+      "date": "20/07/2025",
+      "category": "Decentralized Infrastructure",
+      "text": "## The Shift: Local-First Browsing\n\nThe modern web is built on 'rented' space. With **Zap**, I wanted to prove that the user’s machine could be the server. Zap isn't just a browser; it’s a **BTFS node** with a UI. \n\n### Deep System Integration\nUsing **ElectronJS**, I implemented deep IPC (Inter-Process Communication) integration to bridge the gap between the OS and the web context.\n\n### Key Innovations:\n* **Native Injection:** I exposed native BTFS commands directly into the JavaScript `window` object.\n* **Capabilities:** Pages can now call `window.btfs.swarm.peers()` natively without an external provider.\n* **Result:** This enables **Serverless P2P video calls** and multiplayer environments where data is never 'uploaded'—it’s simply shared from your node.\n\n"
+    },
+    {
+      "title": "A Journey to Decentralized Truth: Delphi Protocol",
+      "date": "25/09/2025",
+      "category": "Game Theory & Oracles",
+      "text": "## Solving the Oracle Problem\n\nBlockchains are 'isolated islands of truth.' They know what happens on-chain, but they are blind to the real world. This is the **Oracle Problem**, and it’s the single biggest point of failure in Web3.\n\n### The Approach: Optimistic Consensus\nFor the **Delphi Protocol**, I chose an optimistic model: **Assume truth until challenged.**\n\n* **The Mechanism:** Participants post a bond to assert data.\n* **The Dispute Layer:** If a challenge occurs, the community votes.\n* **Incentive Alignment:** We use a custom token where voters are rewarded for consensus and 'liars' have their bonds **slashed**.\n\n\n\nBy utilizing game theory, we created a self-correcting 'Decentralized Court of Reality' where honesty is the most profitable strategy."
+    },
+    {
+      "title": "The Math of Prediction: Why CPMM Fails Information Markets",
+      "date": "30/09/2025",
+      "category": "Economic Design",
+      "text": "## Beyond x * y = k\n\nIn DeFi, the **Constant Product Market Maker (CPMM)** is king. It’s perfect for swapping tokens, but it is fundamentally broken for **Prediction Markets**.\n\n### The Mathematical Flaw\nIn a CPMM, prices are **asymptotic**. They can approach 0 or 1, but never truly reach them. In a prediction market, an event *must* resolve to a binary 0 or 1.\n\n### The Fix: LMSR\nIn building Delphi, we moved away from CPMM and implemented the **Logarithmic Market Scoring Rule (LMSR)**.\n* **Why it matters:** LMSR allows prices to reflect true probabilities and, more importantly, allows the market to **settle definitively**.\n\n\n\n> **The Lesson:** Don't use a tool just because it's popular. If the math doesn't align with the outcome, build a new engine."
+    }
+  ]
+}
