@@ -1,0 +1,25 @@
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "module": "commonjs",
+//     "rootDir": "./src",
+//     "outDir": "./dist",
+//     "strict": true,
+//     "esModuleInterop": true
+//   },
+
+
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",          // Change this
+    "moduleResolution": "NodeNext",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*", "generated"],
+  "exclude": ["node_modules", "dist", "frontend/**/*", "**/*.test.ts"]}

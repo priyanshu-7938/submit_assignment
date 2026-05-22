@@ -1,0 +1,26 @@
+FROM node:24-alpine
+
+# App directory
+WORKDIR /app
+
+# Copy package files first
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy project source
+COPY . .
+
+# Generate Prisma client
+RUN npx prisma generate
+
+# Compile TypeScript
+RUN npx tsc
+
+# Expose application port
+# Override via docker-compose if needed
+EXPOSE 3000
+
+# Start app after applying migrations
+CMD ["sh", "-c",  "npx prisma db push && node dist/server.js"]

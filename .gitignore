@@ -6,6 +6,6 @@
 #ignore all dist and build dirs
 **/dist/
 **/data/
-
+**/.env
 # ignore all generated folders
 **/generated/

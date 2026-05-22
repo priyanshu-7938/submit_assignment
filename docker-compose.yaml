@@ -1,0 +1,98 @@
+version: '3.9'
+
+services:
+
+  # ==========================================
+  # PostgreSQL Database
+  # ==========================================
+  postgres:
+    image: postgres:16
+    container_name: ollive_postgres
+
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: MySuperSecureRootPassword
+      POSTGRES_DB: db
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    networks:
+      - ollive_network
+
+  # ==========================================
+  # Main Backend Server
+  # ==========================================
+  backend:
+    build: ./thebackend
+
+    container_name: ollive_backend
+
+    restart: unless-stopped
+
+    depends_on:
+      - postgres
+      - observability
+
+    environment:
+      PORT: 3000
+
+      DATABASE_URL: postgresql://postgres:MySuperSecureRootPassword@postgres:5432/db
+      GEMINI_API_KEY: "GEMINI_key_here"
+      GROQ_API_KEY: "GROQ_key_here"
+      OPENROUTER_API_KEY: "OPENROUTER_key_here"
+      ANALYTICS_ENDPOINT: "http://observability:4000/ingest"
+      ANALYTICS_KEY: "my-analytics-key"
+      CORS_ORIGIN: http://localhost:3001
+
+    ports:
+      - "3000:3000"
+
+    networks:
+      - ollive_network
+
+  # ==========================================
+  # Observability / Analytics Server
+  # ==========================================
+  observability:
+    build: ./analytics-server
+
+    container_name: ollive_observability
+
+    restart: unless-stopped
+
+    depends_on:
+      - postgres
+
+    environment:
+      PORT: 4000
+
+      DATABASE_URL: postgresql://postgres:MySuperSecureRootPassword@postgres:5432/db
+    
+
+    ports:
+      - "4000:4000"
+
+    networks:
+      - ollive_network
+
+
+# ==========================================
+# NETWORKS
+# ==========================================
+
+networks:
+  ollive_network:
+    driver: bridge
+
+# ==========================================
+# VOLUMES
+# ==========================================
+
+volumes:
+  postgres_data:
