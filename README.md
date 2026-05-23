@@ -59,7 +59,7 @@ The system is decoupled into three distinct folders, engineered to scale indepen
 ### Local Deployment
 Launch the entire distributed network with a single command from the project root:
 ```bash
-docker compose up --build -d
+docker compose up -d
 ```
 
 need to update the env in thebackend folder for the  api keys with gemini and groq etc.
