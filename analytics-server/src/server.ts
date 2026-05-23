@@ -11,7 +11,7 @@ const connectionString = `${process.env.DATABASE_URL}` as string;
 const app = express();
 const PORT = process.env.PORT || 4000;
 const __dirname = process.cwd();
-const dataDirectoryPath = path.join(__dirname, '../data');
+const dataDirectoryPath = path.join(__dirname, './data');
 
 // Initialize Prisma Client
 console.log(`[Init] Establishing connection with PostgreSQL using PrismaPg adapter...`);
