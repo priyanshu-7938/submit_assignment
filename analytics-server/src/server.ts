@@ -13,18 +13,14 @@ const PORT = process.env.PORT || 4000;
 const __dirname = process.cwd();
 const dataDirectoryPath = path.join(__dirname, './data');
 
-// Initialize Prisma Client
 console.log(`[Init] Establishing connection with PostgreSQL using PrismaPg adapter...`);
 let adapter = new PrismaPg({ connectionString });
 let prisma = new PrismaClient({ adapter: adapter });
 
 app.use(cors({ origin: '*' }));
 app.use(express.static(dataDirectoryPath));
-app.use(express.json({ limit: '50mb' })); // Ensure higher payload bounds for batched text logs
+app.use(express.json({ limit: '50mb' })); 
 
-// =========================================================================
-// TYPES & INTERFACES (Matching chat-analytics-sdk Server Payload Format)
-// =========================================================================
 interface SdkIncomingMessage {
   role: 'assistant' | 'system';
   content: string;
@@ -40,6 +36,7 @@ interface SdkIncomingMessage {
   };
 }
 
+
 interface SdkWebhookPayload {
   sdkVersion: string;
   flushedAt: number;
@@ -52,9 +49,6 @@ interface SdkWebhookPayload {
   messages: SdkIncomingMessage[];
 }
 
-// =========================================================================
-// INGESTION WEBHOOK ENDPOINT
-// =========================================================================
 app.post('/ingest', async (req: Request, res: Response) => {
   const requestReceivedTime = Date.now();
   console.log(`\n🚀 [Ingest] Received incoming payload batch at ${new Date().toISOString()}`);
@@ -78,14 +72,12 @@ app.post('/ingest', async (req: Request, res: Response) => {
     let logsProcessed = 0;
     let chatsProcessed = 0;
 
-    // Process all incoming data blocks safely in background transactions
     for (let i = 0; i < messages.length; i++) {
       const msg = messages[i];
       const isServerLog = msg.metadata?.type === 'server_log' || msg.role === 'system';
       console.log(`➡️ [Item ${i + 1}/${messages.length}] Role: "${msg.role}" | Is System Log: ${isServerLog}`);
 
       if (isServerLog) {
-        // 1. Process as an Observability Event / Diagnostic Log entry
         await prisma.$transaction(async (tx) => {
           const logLevel = msg.metadata?.logLevel || 'info';
           
@@ -116,14 +108,12 @@ app.post('/ingest', async (req: Request, res: Response) => {
         logsProcessed++;
 
       } else {
-        // 2. Process as a typical LLM Chat Inference Transaction Turn
         const mappedRole = Role.ASSISTANT;
         let targetStatus = MessageStatus.COMPLETED;
         
         console.log(`   └─💾 Writing Chat data turn. Model: "${msg.metadata?.model}" | Latency: ${msg.metadata?.latencyMs || 0}ms`);
 
         await prisma.$transaction(async (tx) => {
-          // Commit directly to historical message tables if tracking active session mapping
           if (communicationId) {
             const countCheck = await tx.message.count({ where: { communicationId } });
             console.log(`   ├─🗂 Existing session messages counter: ${countCheck}. Assigning sequence number: ${countCheck + 1}`);
@@ -143,7 +133,6 @@ app.post('/ingest', async (req: Request, res: Response) => {
             });
           }
 
-          // Build core analytical metrics entry line
           await tx.inferenceLog.create({
             data: {
               communicationId,
@@ -171,10 +160,6 @@ app.post('/ingest', async (req: Request, res: Response) => {
     return res.status(500).json({ error: "Internal operational collection failure." });
   }
 });
-
-// =========================================================================
-// ANALYTICS & METRICS DASHBOARD API ENDPOINTS
-// =========================================================================
 
 /**
  * GET /api/analytics/summary
@@ -316,8 +301,5 @@ app.get('/api/analytics/user-retention', async (req: Request, res: Response) => 
 
 // Start the ingestion engine cluster instance
 app.listen(PORT, () => {
-  console.log(`\n🚀 ========================================================`);
   console.log(`⚡ [Telemetry Ingest Cluster Engine running on port ${PORT}]`);
-  console.log(`⚙️  Adapter Mode: Native Prisma Client with PostgreSQL Adapter`);
-  console.log(`========================================================\n`);
 });
