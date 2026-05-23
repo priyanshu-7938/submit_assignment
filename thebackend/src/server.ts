@@ -52,15 +52,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(dataDirectoryPath));
 
-// const modelService = GeminiFreeService.getInstance();
 const db = DatabaseHandler.getInstance();
 
-// Tracks active AbortSignals to break generation loops upon cancellation request
 const activeCancellations = new Map<string, AbortController>();
-
-// ==========================================
-// REST API ROUTES
-// ==========================================
 
 /**
  * Route: Start a new conversation session
@@ -229,23 +223,17 @@ io.on('connection', (socket) => {
         provider: session.provider ?? "google",
         model: session.model ?? "gemini-2.5-flash-lite"
       });
-
-      // use db to fetch the model type here.. and based on the type use a model.
-      const modelService = getModelService(session.provider); // Implement this function to return the correct service instance based on provider
-      // 6. Consume the AsyncGenerator stream from the custom model service
-      // clean the prompt: with pii-filter
+      const modelService = getModelService(session.provider);
 
       const responseGenerator = modelService.stream(contextPrompt);
 
       for await (const chunk of responseGenerator) {
-        // Intercept and break out immediately if user triggered cancellation signal
         if (controller.signal.aborted) {
           throw new DOMException("Generation stopped by user.", "AbortError");
         }
 
         accumulatedText += chunk;
         
-        // Broadcast current textual chunk out to client application
         socket.emit('stream_chunk', {
             communicationId,
             messageId: assistantMessagePlaceholder.id,
@@ -267,7 +255,6 @@ io.on('connection', (socket) => {
             status: 'COMPLETED'
         });
 
-      // 7. Successful Stream Termination: Mark completed and save payload
       await db.updateMessageStatus(assistantMessagePlaceholder.id, {
         status: MessageStatus.COMPLETED,
         content: accumulatedText,
@@ -278,7 +265,6 @@ io.on('connection', (socket) => {
       socket.emit('stream_complete', { communicationId, messageId: assistantMessagePlaceholder.id });
 
     } catch (error: any) {
-      // 8. Graceful Exception Handling (Cancellation or Crash)
       if (error.name === 'AbortError' || activeCancellations.get(communicationId)?.signal.aborted) {
         console.log(`Stream generation manually cut short for conversation: ${communicationId}`);
         
