@@ -3,13 +3,21 @@
 everything implemented as described in the google docs.
 even the bonus section.
 
-LINKS: 
+### LINKS: 
+
+Intor video to product: https://drive.google.com/file/d/1btISVGLstrZfR9xinOSnU-qmf_oOJM_S/view?usp=sharing (I was unable to record video on Loom) 
+
 chatbot: http://assistant.frontlabs.space/
+
 observiblity: http://hubserver.frontlabs.space
+
 npm package: https://www.npmjs.com/package/chat-sdk-custom
 
-Docekr images: 
+
+### Docekr images: 
+
 https://hub.docker.com/r/priyanshoe/ollive-analytics
+
 https://hub.docker.com/r/priyanshoe/ollive-backend
 
  Refer the Kubernetis config-file in root dir to view the env variable required for each of the service.
@@ -38,6 +46,7 @@ The system is decoupled into three distinct folders, engineered to scale indepen
 
 * **Multi-Provider Support:** Standardized adapter layer accommodating Gemini, Groq, DeepSeek, and OpenAI.
 * **Streaming Responses:** Implemented bidirectional WebSockets allowing real-time text output and immediate client-side stream cancellations.
+* **Holds context of past mesages: ** Yes it does by saving in DB and also cachin it in memory.
 * **Telemetry Dashboards:** Dedicated analytical views for **Latency, Throughput, and Error rates** inside the Observatory.
 * **One-Command Setup:** Single script initialization via Docker Compose.
 * **Event-Driven & Privacy-First:** Edge-based PII redaction pipeline decoupled from analytics storage via hooks.
@@ -54,3 +63,12 @@ docker compose up --build -d
 ```
 
 need to update the env in thebackend folder for the  api keys with gemini and groq etc.
+
+
+Futuse Things that i might have done with more time.
+- refined the SDK to even push more data about the interaction with better formatting.
+- adding more models other thatn the basic free models.
+- latency reduction, when this scales this is going to be affected as the user connectes via the Socket: Betteroption using a raplica socket server with a service discovery all the servers be pushing data to a single observatory.
+- The caching of the messages can bee off loded to a redis server making is a perfcet microservice archi.
+
+ 
