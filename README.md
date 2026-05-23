@@ -3,6 +3,19 @@
 everything implemented as described in the google docs.
 even the bonus section.
 
+LINKS: 
+chatbot: http://assistant.frontlabs.space/
+observiblity: http://hubserver.frontlabs.space
+npm package: https://www.npmjs.com/package/chat-sdk-custom
+
+Docekr images: 
+https://hub.docker.com/r/priyanshoe/ollive-analytics
+https://hub.docker.com/r/priyanshoe/ollive-backend
+
+ Refer the Kubernetis config-file in root dir to view the env variable required for each of the service.
+ ----------
+
+ ME??:: https://priyanshu.frontlabs.space/
 
 # Distributed Conversational AI Platform with Real-Time Observability
 
